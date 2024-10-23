@@ -1,12 +1,15 @@
-FROM python:3.9-slim
+FROM node:alpine
 
-WORKDIR /app
+WORKDIR /portal-web
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY ./portal-web/package*.json ./
 
-COPY . .
+RUN npm install
 
-EXPOSE 5000
+COPY ./portal-web .
 
-CMD ["python", "app.py"]
+RUN npm install -g @angular/cli@16
+
+EXPOSE 4200
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]

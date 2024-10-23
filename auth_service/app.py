@@ -79,12 +79,12 @@ def login():
     # Logging de datos recibidos
     logging.info(f"Datos recibidos: {data}")
 
-    # Verificar que se enviaron email y contraseña
-    if not data or 'email' not in data or 'password' not in data:
+    # Verificar que se enviaron username y contraseña
+    if not data or 'username' not in data or 'password' not in data:
         return jsonify({"message": "Faltan datos obligatorios"}), 400
 
-    # Buscar al usuario por email
-    user = User.query.filter_by(email=data['email']).first()
+    # Buscar al usuario por username
+    user = User.query.filter_by(username=data['username']).first()
     if not user:
         return jsonify({"message": "El usuario no existe"}), 404
 

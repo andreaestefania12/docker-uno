@@ -4,7 +4,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "8000:5000"
+      - "4200:4200"
     depends_on:
       - auth_service
       - product_service
@@ -17,7 +17,7 @@ services:
   auth_service:
     build: ./auth_service
     ports:
-      - "5000:5000"
+      - "5004:5000"
     depends_on:
       - db
     environment:
