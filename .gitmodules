@@ -1,0 +1,3 @@
+[submodule "frontend/portal-web"]
+	path = frontend/portal-web
+	url = https://github.com/andreaestefania12/portal-web.git
